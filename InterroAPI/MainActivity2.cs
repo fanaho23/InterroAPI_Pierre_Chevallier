@@ -29,15 +29,15 @@ namespace InterroAPI
             SetContentView(Resource.Layout.Main2);
             btnListe = FindViewById<Button>(Resource.Id.btnListe);
             btnInscription = FindViewById<Button>(Resource.Id.btnInscription);
-             string laFormation = Intent.GetStringExtra("laFormation");
-            string laActivite = Intent.GetStringExtra("laActivite");
+              laFormation = Intent.GetStringExtra("laFormation");
+             laActivite = Intent.GetStringExtra("laActivite");
             btnListe.Click += BtnListe_Click;
             // Create your application here
         }
 
         private void BtnListe_Click(object sender, EventArgs e)
         {
-            Intent intentMenu = new Intent(this, typeof(MainActivity2));
+            Intent intentMenu = new Intent(this, typeof(MainActivity3));
             intentMenu.PutExtra("laFormation", JsonConvert.SerializeObject(laFormation));
             intentMenu.PutExtra("laActivite", JsonConvert.SerializeObject(laActivite));
             //Toast.MakeText(this, "Ok", ToastLength.Long).Show();

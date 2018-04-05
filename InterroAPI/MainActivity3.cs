@@ -10,24 +10,43 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using InterroAPI.MesAdapters;
+using InterroAPI.Model;
+using Newtonsoft.Json;
 
 namespace InterroAPI
 {
     [Activity(Label = "MainActivity3")]
     public class MainActivity3 : Activity
     {
-        string laFormation;
-        string laActivite;
+        List<Inscription> lstInscription;
+        List<Agent> lstAgents;
+        AdapterInscrit adapter;
+        ListView lvInscrit;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main3);
-            laActivite = Intent.GetStringExtra("laActivite");
-            laFormation = Intent.GetStringExtra("laFormation");
-            WebClient wc = new WebClient();
-            //Uri url = new Uri();
+            lvInscrit = FindViewById<ListView>(Resource.Id.lvInscrit);
+            string laActivite = Intent.GetStringExtra("laActivite");
 
+            string laFormation = Intent.GetStringExtra("laFormation");
+
+            Activite activite = JsonConvert.DeserializeObject<Activite>(laActivite);
+           Formation formation = JsonConvert.DeserializeObject<Formation>(laFormation);
+
+            WebClient wc = new WebClient();
+            Uri url = new Uri("http://" + GetString(Resource.String.ip) + "GetAllInscriptions.php?idFormation="+formation.code);
+            wc.DownloadStringAsync(url);
+            wc.DownloadStringCompleted += Wc_DownloadStringCompleted;
             // Create your application here
+        }
+
+        private void Wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            lstInscription = JsonConvert.DeserializeObject<List<Inscription>>(e.Result);
+            adapter = new AdapterInscrit(this, lstInscription);
+            lvInscrit.Adapter = adapter;
         }
     }
 }

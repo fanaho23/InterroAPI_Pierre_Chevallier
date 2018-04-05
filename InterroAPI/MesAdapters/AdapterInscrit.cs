@@ -13,25 +13,25 @@ using InterroAPI.Model;
 
 namespace InterroAPI.MesAdapters
 {
-    class AdapterFormation : ArrayAdapter<Formation>
+    class AdapterInscrit : ArrayAdapter<Inscription>
     {
 
         Activity context;
-        List<Formation> lesFormations;
+        List<Inscription> lesInscriptions;
 
-        public AdapterFormation(Activity unContext, List<Formation> desFormations)
-            : base(unContext, Resource.Layout.ItemFormation, desFormations)
+        public AdapterInscrit(Activity unContext, List<Inscription> desInscriptions)
+            : base(unContext, Resource.Layout.ItemInscription, desInscriptions)
         {
             this.context = unContext;
-            lesFormations = desFormations;
+            lesInscriptions = desInscriptions;
         }
 
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var view = context.LayoutInflater.Inflate(Resource.Layout.ItemFormation, null);
-            view.FindViewById<TextView>(Resource.Id.txtNomFormation).Text = lesFormations[position].intitule.ToString();
-
+             view.FindViewById<TextView>(Resource.Id.txtAgent).Text = lesInscriptions[position].codeAgent.ToString();
+            view.FindViewById<TextView>(Resource.Id.txtFormation).Text = lesInscriptions[position].numeroFormation.ToString();
 
             return view;
         }

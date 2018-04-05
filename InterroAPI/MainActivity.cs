@@ -70,7 +70,7 @@ namespace InterroAPI
         {
             laFormation = lstFormation[e.Position];
             Intent intentMenu = new Intent(this, typeof(MainActivity2));
-            intentMenu.PutExtra("laFormation", JsonConvert.SerializeObject(laActivite));
+            intentMenu.PutExtra("laFormation", JsonConvert.SerializeObject(laFormation));
             intentMenu.PutExtra("laActivite", JsonConvert.SerializeObject(laActivite));
             //Toast.MakeText(this, "Ok", ToastLength.Long).Show();
             StartActivity(intentMenu);
