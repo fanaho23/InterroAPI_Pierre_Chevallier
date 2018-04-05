@@ -58,10 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainActivity2.cs" />
+    <Compile Include="MainActivity3.cs" />
     <Compile Include="MesAdapters\AdapterActivite.cs" />
-    <Compile Include="MesAdapters\AdapterFormation.cs" />
+    <Compile Include="MesAdapters\AdapterFormat.cs" />
+    <Compile Include="MesAdapters\AdapterInscrit.cs" />
     <Compile Include="Model\Activite.cs" />
+    <Compile Include="Model\Agent.cs" />
     <Compile Include="Model\Formation.cs" />
+    <Compile Include="Model\Inscription.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,6 +80,15 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ItemFormation.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Main2.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Main3.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ItemInscription.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

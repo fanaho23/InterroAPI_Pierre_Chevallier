@@ -44,14 +44,29 @@ namespace InterroAPI
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040003
-			public const int lvActivite = 2130968579;
+			// aapt resource value: 0x7f040009
+			public const int btnInscription = 2130968585;
+			
+			// aapt resource value: 0x7f040008
+			public const int btnListe = 2130968584;
 			
 			// aapt resource value: 0x7f040005
-			public const int lvFormation = 2130968581;
+			public const int lvActivite = 2130968581;
+			
+			// aapt resource value: 0x7f040007
+			public const int lvFormation = 2130968583;
+			
+			// aapt resource value: 0x7f04000a
+			public const int lvInscrit = 2130968586;
+			
+			// aapt resource value: 0x7f040006
+			public const int textView1 = 2130968582;
 			
 			// aapt resource value: 0x7f040004
-			public const int textView1 = 2130968580;
+			public const int txtAgent = 2130968580;
+			
+			// aapt resource value: 0x7f040003
+			public const int txtFormation = 2130968579;
 			
 			// aapt resource value: 0x7f040001
 			public const int txtLibelle = 2130968577;
@@ -82,7 +97,16 @@ namespace InterroAPI
 			public const int ItemFormation = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int Main = 2130837506;
+			public const int ItemInscription = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int Main = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int Main2 = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int Main3 = 2130837509;
 			
 			static Layout()
 			{

@@ -13,13 +13,13 @@ using InterroAPI.Model;
 
 namespace InterroAPI.MesAdapters
 {
-    class AdapterFormation : ArrayAdapter<Formation>
+    class AdapterFormat : ArrayAdapter<Formation>
     {
 
         Activity context;
         List<Formation> lesFormations;
 
-        public AdapterFormation(Activity unContext, List<Formation> desFormations)
+        public AdapterFormat(Activity unContext, List<Formation> desFormations)
             : base(unContext, Resource.Layout.ItemFormation, desFormations)
         {
             this.context = unContext;
@@ -31,7 +31,7 @@ namespace InterroAPI.MesAdapters
         {
             var view = context.LayoutInflater.Inflate(Resource.Layout.ItemFormation, null);
             view.FindViewById<TextView>(Resource.Id.txtNomFormation).Text = lesFormations[position].intitule.ToString();
-            
+
 
             return view;
         }

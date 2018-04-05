@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using InterroAPI.Model;
 using Newtonsoft.Json;
 using InterroAPI.MesAdapters;
+using Android.Content;
 
 namespace InterroAPI
 {
@@ -18,19 +19,20 @@ namespace InterroAPI
         ListView lvActivite;
         ListView lvFormation;
         AdapterActivite adapter;
-        AdapterFormation adapterForm;
+        AdapterFormat adapter2;
         Activite laActivite;
+        Formation laFormation;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-           
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             lvActivite = FindViewById<ListView>(Resource.Id.lvActivite);
             lvFormation = FindViewById<ListView>(Resource.Id.lvFormation);
             WebClient wc = new WebClient();
 
-            Uri url = new Uri("http://"+ GetString(Resource.String.ip)+ "GetAllActivites.php");
+            Uri url = new Uri("http://" + GetString(Resource.String.ip) + "GetAllActivites.php");
             wc.DownloadStringAsync(url);
             wc.DownloadStringCompleted += Wc_DownloadStringCompleted;
 
@@ -50,7 +52,7 @@ namespace InterroAPI
             laActivite = lstActivite[e.Position];
 
             WebClient wc = new WebClient();
-            Uri url = new Uri("http://" + GetString(Resource.String.ip) + "GetFormationsByIdActivite.php?idActivite="+laActivite.numero);
+            Uri url = new Uri("http://" + GetString(Resource.String.ip) + "GetFormationsByIdActivite.php?idActivite=" + laActivite.numero);
             wc.DownloadStringAsync(url);
             wc.DownloadStringCompleted += Wc_DownloadStringCompleted1;
 
@@ -59,8 +61,19 @@ namespace InterroAPI
         private void Wc_DownloadStringCompleted1(object sender, DownloadStringCompletedEventArgs e)
         {
             lstFormation = JsonConvert.DeserializeObject<List<Formation>>(e.Result);
-            adapterForm = new AdapterFormation(this, lstFormation);
-            lvFormation.Adapter = adapterForm;
+            adapter2 = new AdapterFormat(this, lstFormation);
+            lvFormation.Adapter = adapter2;
+            lvFormation.ItemClick += LvFormation_ItemClick;
+        }
+
+        private void LvFormation_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            laFormation = lstFormation[e.Position];
+            Intent intentMenu = new Intent(this, typeof(MainActivity2));
+            intentMenu.PutExtra("laFormation", JsonConvert.SerializeObject(laActivite));
+            intentMenu.PutExtra("laActivite", JsonConvert.SerializeObject(laActivite));
+            //Toast.MakeText(this, "Ok", ToastLength.Long).Show();
+            StartActivity(intentMenu);
         }
     }
 }
