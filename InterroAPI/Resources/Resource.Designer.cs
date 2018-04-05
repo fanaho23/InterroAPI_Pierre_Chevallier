@@ -41,11 +41,48 @@ namespace InterroAPI
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f040003
+			public const int lvActivite = 2130968579;
+			
+			// aapt resource value: 0x7f040005
+			public const int lvFormation = 2130968581;
+			
+			// aapt resource value: 0x7f040004
+			public const int textView1 = 2130968580;
+			
+			// aapt resource value: 0x7f040001
+			public const int txtLibelle = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int txtNomFormation = 2130968578;
+			
+			// aapt resource value: 0x7f040000
+			public const int txtNumero = 2130968576;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Main = 2130837504;
+			public const int ItemAcitvite = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int ItemFormation = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Main = 2130837506;
 			
 			static Layout()
 			{

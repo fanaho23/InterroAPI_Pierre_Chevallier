@@ -9,11 +9,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 
 namespace InterroAPI.Model
 {
-    public class ClassTest
+    public class Activite
     {
-
+        [JsonProperty("numero")]
+        public string numero { get; set; }
+        [JsonProperty("libelle")]
+        public string libelle { get; set; }
     }
 }
