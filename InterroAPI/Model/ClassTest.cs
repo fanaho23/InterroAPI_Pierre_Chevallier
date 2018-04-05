@@ -14,5 +14,6 @@ namespace InterroAPI.Model
 {
     public class ClassTest
     {
+
     }
 }
